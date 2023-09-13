@@ -4,10 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="/book-object.js"></script>
+    <script src="mylibrary.js" defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <header>
+        <div>
+            Local Library
+        </div>
+    </header>
+    <dialog id="bookDialog">
+        <form>
+            <div>
+                <label for="bookTitle">Book Title</label>
+                <input type="text" name="bookTitle" id="bookTitle">
+                <label for="authors">Author</label>
+                <input type="text" name="authors" id="authors">
+                <label for="pages">Pages</label>
+                <input type="number" name="pages" id="pages">
+                <label for="haveRead">I have read the book</label>
+                <input type="checkbox" name="haveRead" id="haveRead">
+            </div>
+            <div class="form-btn-wrapper">
+                <button>Cancel</button>
+                <button>Add Book</button>
+            </div>
+        </form>
+    </dialog>
+    <div class="add-book-wrapper">
+        <button id="showForm">Add Book</button>
+    </div>
+    <div class="cards-wrapper">
+    </div>
 </body>
 </html>
