@@ -11,6 +11,9 @@ const myLibrary = [];
 //handle the form dialog
 const bookDialog = document.getElementById('bookDialog'); 
 const showForm = document.getElementById('showForm');
+const addBook = document.getElementById('addBook');
+
+
 
 showForm.addEventListener('click', () => {
   bookDialog.showModal()
@@ -19,7 +22,7 @@ showForm.addEventListener('click', () => {
 function book() {
   function book(title, author, pages, isRead) {
     this.title = title
-    this.name = author
+    this.author = author
     this.pages = pages
     this.isRead = isRead
     this.about = function() {
@@ -29,10 +32,26 @@ function book() {
 }
 };
 
+addBook.addEventListener('click', (e) => {
+  let bookTitle = document.getElementById('bookTitle');
+let author = document.getElementById('bookTitle');
+let pages = document.getElementById('pages');
+let haveRead = document.getElementById('haveRead');
+  e.preventDefault()
+  console.log(bookTitle.value, author.value, pages.value, haveRead.value);
+})
+
 function addBookToLibrary() {
 
 };
 
-function createCards() {
+const cards = 
 
+function createCards() {
+  let cards = document.createElement('div');
+  let cardTitle = 
+  cards.className = 'cards'
+
+  
+  
 }

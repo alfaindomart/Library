@@ -6,3 +6,11 @@ header {
 header > div {
     font-size: 2rem;
 }
+
+.cards {
+    display: flex;
+    max-width: fit-content;
+    flex-direction: column;
+    border: 2px solid black;
+    background-color: bisque;
+}
