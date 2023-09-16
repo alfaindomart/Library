@@ -19,39 +19,64 @@ showForm.addEventListener('click', () => {
   bookDialog.showModal()
 });
 
-function book() {
-  function book(title, author, pages, isRead) {
+function book (title, author, pages) {
     this.title = title
     this.author = author
     this.pages = pages
-    this.isRead = isRead
-    this.about = function() {
-      if (this.isRead !== true)
-      {return `${title} is written by ${author}, it has ${pages} pages. You have not read this book`} else return `${title} is written by ${author}, it has ${pages} pages. You have read this book`
-    }
-}
 };
 
 addBook.addEventListener('click', (e) => {
-  let bookTitle = document.getElementById('bookTitle');
-let author = document.getElementById('bookTitle');
-let pages = document.getElementById('pages');
-let haveRead = document.getElementById('haveRead');
-  e.preventDefault()
-  console.log(bookTitle.value, author.value, pages.value, haveRead.value);
-})
+
+  let bookTitle = document.getElementById('bookTitle').value;
+  let author = document.getElementById('authors').value;
+  let pages = document.getElementById('pages').value;
+  e.preventDefault();
+
+  let cards = document.createElement('div');
+  let cardTitle = document.createElement('h2');
+  let cardAuthor = document.createElement('p');
+  let cardPages = document.createElement('p');
+  let cardReadBtn = document.createElement('button');
+  let cardRemoveBtn = document.createElement('button');
+
+  cardWrap.appendChild(cards);
+cards.append(cardTitle, cardAuthor, cardPages, cardReadBtn, cardRemoveBtn);
+
+cards.classList.add('cards');
+cardTitle.classList.add('cd-title');
+cardAuthor.classList.add('cd-author');
+cardPages.classList.add('cd-pages');
+cardReadBtn.classList.add('cd-read-btn');
+cardRemoveBtn.classList.add('cd-remove');
+
+  let newBook = new book(bookTitle, author, pages);
+  for (const prop in newBook) {
+    switch (prop) {
+      case 'title':
+        cardTitle.textContent = newBook[prop];
+        break;
+      case 'author':
+        cardAuthor.textContent = newBook[prop];
+        break;
+      case 'pages':
+        cardPages.textContent = newBook[prop];
+        break;
+      default:
+        // Handle unknown properties if needed
+        break;
+    }
+    }
+  }
+)
 
 function addBookToLibrary() {
-
+  
 };
 
-const cards = 
+let cardWrap = document.getElementById('cards-wrapper');
 
-function createCards() {
-  let cards = document.createElement('div');
-  let cardTitle = 
-  cards.className = 'cards'
 
-  
-  
-}
+
+
+
+
