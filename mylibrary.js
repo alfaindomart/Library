@@ -19,10 +19,11 @@ showForm.addEventListener('click', () => {
   bookDialog.showModal()
 });
 
-function book (title, author, pages) {
+function book (title, author, pages, isRead) {
     this.title = title
     this.author = author
     this.pages = pages
+    this.isRead = isRead
 };
 
 addBook.addEventListener('click', (e) => {
@@ -30,26 +31,28 @@ addBook.addEventListener('click', (e) => {
   let bookTitle = document.getElementById('bookTitle').value;
   let author = document.getElementById('authors').value;
   let pages = document.getElementById('pages').value;
+  let isRead = document.getElementById('haveRead').checked;
+
   e.preventDefault();
 
   let cards = document.createElement('div');
   let cardTitle = document.createElement('h2');
   let cardAuthor = document.createElement('p');
   let cardPages = document.createElement('p');
-  let cardReadBtn = document.createElement('button');
-  let cardRemoveBtn = document.createElement('button');
+  let cardReadStat = document.createElement('div');
+  let cardRemoveBtn = document.createElement('div');
 
   cardWrap.appendChild(cards);
-cards.append(cardTitle, cardAuthor, cardPages, cardReadBtn, cardRemoveBtn);
+cards.append(cardTitle, cardAuthor, cardPages, cardReadStat, cardRemoveBtn);
 
 cards.classList.add('cards');
 cardTitle.classList.add('cd-title');
 cardAuthor.classList.add('cd-author');
 cardPages.classList.add('cd-pages');
-cardReadBtn.classList.add('cd-read-btn');
+cardReadStat.classList.add('cd-read-stat');
 cardRemoveBtn.classList.add('cd-remove');
 
-  let newBook = new book(bookTitle, author, pages);
+  let newBook = new book(bookTitle, author, pages, isRead);
   for (const prop in newBook) {
     switch (prop) {
       case 'title':
@@ -65,13 +68,13 @@ cardRemoveBtn.classList.add('cd-remove');
         // Handle unknown properties if needed
         break;
     }
+    if (!isRead) {
+      cardReadStat.textContent = "not read"
+    } else {cardReadStat.textContent = "Read";
+  }
     }
   }
 )
-
-function addBookToLibrary() {
-  
-};
 
 let cardWrap = document.getElementById('cards-wrapper');
 
