@@ -24,6 +24,10 @@ function book (title, author, pages, isRead) {
     this.author = author
     this.pages = pages
     this.isRead = isRead
+    this.pushBook = function () {
+      myLibrary.push(this)
+    }
+    this.pushBook();
 };
 
 addBook.addEventListener('click', (e) => {
@@ -40,7 +44,7 @@ addBook.addEventListener('click', (e) => {
   let cardAuthor = document.createElement('p');
   let cardPages = document.createElement('p');
   let cardReadStat = document.createElement('div');
-  let cardRemoveBtn = document.createElement('div');
+  let cardRemoveBtn = document.createElement('button');
 
   cardWrap.appendChild(cards);
 cards.append(cardTitle, cardAuthor, cardPages, cardReadStat, cardRemoveBtn);
@@ -71,7 +75,9 @@ cardRemoveBtn.classList.add('cd-remove');
     if (!isRead) {
       cardReadStat.textContent = "not read"
     } else {cardReadStat.textContent = "Read";
-  }
+  };
+  cardRemoveBtn.innerHTML = "remove";
+  bookDialog.close();
     }
   }
 )
