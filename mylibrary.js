@@ -48,9 +48,15 @@ function removeBook(index) {
   myLibrary.splice(index, 1);
 }
 
-function renderBook() {
+let cardWrap = document.getElementById('cards-wrapper');
 
+function renderBook() {
+  
+  cardWrap.innerHTML = ''
+  
   for (const obj of myLibrary) {
+    
+
 
   let cards = document.createElement('div');
   let cardTitle = document.createElement('h2');
@@ -85,6 +91,9 @@ addBook.addEventListener('click', (e) => {
   e.preventDefault();
   addBookToLibrary();
   renderBook();
+  
+  document.getElementById('bookForm').reset();
+
   bookDialog.close();
 })
 
@@ -146,7 +155,6 @@ addBook.addEventListener('click', (e) => {
 //   }
 // )
 
-let cardWrap = document.getElementById('cards-wrapper');
 
 
 
